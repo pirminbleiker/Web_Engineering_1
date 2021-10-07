@@ -1,0 +1,8 @@
+.App-header {
+    background-color: #76d7f0;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }

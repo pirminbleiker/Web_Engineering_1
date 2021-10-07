@@ -1,23 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import logo from './logo.svg'
+import './App.css'
+import { AppHeader } from './AppHeader'
+import { Controlpanel } from './Controlpanel'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        Todo App
-      </header>
-      <div className="Control-panel">
-        <div>
-          <input type="text"></input>
-          <button className="button">Hinzufügen</button>
-        </div>
-        <div>
+     <AppHeader>Todo App</AppHeader>
+      <Controlpanel/>
+      <div>
         <input type="checkbox" id="showAll" name="showAll"></input>
         <label htmlFor="showAll">Alle anzeigen</label>
         </div>
-      </div>
       <div className="Tasks">
         <div className="Single-Task">
           <input type="checkbox"></input>
