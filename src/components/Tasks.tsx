@@ -1,4 +1,6 @@
 import React, { FC } from 'react'
+import Task from './Task'
+
 
 interface List {
     tasks: {
@@ -13,7 +15,7 @@ const Tasks: FC<List> = ({ tasks }) => {
     return (
         <>
             {tasks.map((task) => (
-                <h3 key={task.id}>{task.text}</h3>
+                <Task key={task.id} {...task}/>
             ))}
         </>
 
