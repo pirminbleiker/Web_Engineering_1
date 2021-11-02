@@ -2,7 +2,7 @@ import './App.css'
 import { AppHeader } from './components/AppHeader'
 import { Controlpanel } from './components/Controlpanel'
 import React, { useState } from "react";
-import { SingleTask, Task } from './components/Task'
+import { Task } from './components/Task'
 import { Tasks } from './components/Tasks'
 
 // TODO Folie 18 als Info für Array bearbeitung!!!
@@ -38,10 +38,10 @@ export function App() {
       <AppHeader>Todo App</AppHeader>
       <Controlpanel />
       <div>
-        <input type="checkbox" id="showAll" name="showAll"></input>
+        <input type="checkbox" id="showAll" name="showAll"/>
         <label htmlFor="showAll">Alle anzeigen</label>
       </div>
-      <div className="Tasks">
+      <div>
         <Tasks tasks={tasks}/>
       </div>
     </div>

@@ -11,7 +11,7 @@ export const SingleTask = (props: Task) => {
     return (
 
         <div className='task'>
-            <input type="checkbox">{props.checked}</input>
+            <input type="checkbox" checked={props.checked}/>
             <div className="flash-on">{'\u26A1'}</div>
             <div>{'\u26A1'}</div>
             <div>{'\u26A1'}</div>
