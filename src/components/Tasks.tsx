@@ -8,8 +8,10 @@ interface Props {
 
 export const Tasks = ({tasks}: Props) => {
     const taskList = tasks.map((task) => (
+        <div>
          <SingleTask key={task.id}id={task.id}checked={task.checked}priority={task.priority}text={task.text}/>
+        </div>
     ));
-    return {taskList} 
+    return <div>{taskList} </div>
 }
 
