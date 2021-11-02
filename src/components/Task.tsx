@@ -4,7 +4,7 @@ export interface Task {
     id: string,
     checked: boolean,
     priority: number,
-    text: string;    
+    text: string; 
 }
 
 export const SingleTask = (props: Task) => {
@@ -20,6 +20,8 @@ export const SingleTask = (props: Task) => {
         </div>
     )
 }
+
+
 
 export const createTask = (props: string): Task => {
     return { id: v4(), checked: false, priority: 1, text: props };
