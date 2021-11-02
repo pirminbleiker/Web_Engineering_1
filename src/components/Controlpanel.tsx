@@ -1,10 +1,12 @@
 import './Controlpanel.css'
-import { TextInput,AddTask } from './TaskInput'
+import { TextInput } from './TaskInput'
+interface Props {
+    addTask: (text: string) => void
+    onChange: (value: string) => void
+}
 
-
-export const Controlpanel = () =>(
+export const Controlpanel = ({addTask, onChange}: Props) =>(
     <div className="Control-panel">
-        <TextInput/>
-        <AddTask>Hinzufügen</AddTask> 
+        <TextInput onChange={onChange}addTask={addTask}/>
     </div>
 )

@@ -1,28 +1,33 @@
 import { ChangeEvent, ReactNode, useState } from "react"
+import { createTask } from "./Task"
 import './TaskInput.css'
 
-interface Props{
-    children: ReactNode
+interface Props {
+    addTask: (text: string) => void
+    onChange: (value: string) => void
 }
 
-export const TextInput = () =>{
+
+export const TextInput = ({onChange,addTask}:Props) =>{
+
     const [text,setText]=useState('')
 
     const updateText = (event: ChangeEvent<HTMLInputElement>)=>{
         setText(event.target.value)
+        onChange(event.target.value)
     }
-
-    return (
-        <input onChange={updateText} value={text}/>
-    )
-}
-
-export const AddTask = (props: Props) =>{
     const ButtonClicked = () => {
-        console.log('Task Button clicked')
+        if (text !== '') {
+            setText('');
+            return addTask(text);
+  
+        }
+        console.log('textfield empty')
     }
-
     return (
-        <button className="button" onClick={ButtonClicked}>{props.children}</button>
+    <div>
+        <input type="text" onChange={updateText} value={text}/>
+        <button className="button" onClick={ButtonClicked}>Hinzufügen </button>
+    </div>
     )
 }
