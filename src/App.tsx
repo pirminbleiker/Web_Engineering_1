@@ -1,31 +1,38 @@
 import './App.css'
 import { AppHeader } from './components/AppHeader'
 import { Controlpanel } from './components/Controlpanel'
-import Task from './components/Tasks'
+import React, { useState } from "react";
+import { SingleTask, Task } from './components/Task'
+import { Tasks } from './components/Tasks'
+
+// TODO Folie 18 als Info für Array bearbeitung!!!
+
+const initialTasks: Task[] = [
+  {
+    id: "1",
+    checked: false,
+    priority: 0,
+    text: 'Task bla bla',
+  },
+  {
+    id: "5",
+    checked: true,
+    priority: 0,
+    text: 'lele listeneintrag 2',
+  },
+  {
+    id: "3",
+    checked: false,
+    priority: 0,
+    text: 'leider nicht sortiert nach id',
+  },
+];
 
 
-function App() {
+export function App() {
+  const [tasks, setTask] = useState<Task[]>(initialTasks);
 
-  const tasks: { id: number, checked: boolean, priority: number, text: string }[] = [
-    {
-      id: 1,
-      checked: false,
-      priority: 0,
-      text: 'Task bla bla',
-    },
-    {
-      id: 5,
-      checked: true,
-      priority: 0,
-      text: 'lele listeneintrag 2',
-    },
-    {
-      id: 3,
-      checked: false,
-      priority: 0,
-      text: 'leider nicht sortiert nach id',
-    },
-  ];
+
   return (
     <div className="App">
       <AppHeader>Todo App</AppHeader>
@@ -35,7 +42,7 @@ function App() {
         <label htmlFor="showAll">Alle anzeigen</label>
       </div>
       <div className="Tasks">
-        <Task tasks={tasks} />
+        <Tasks tasks={tasks}/>
       </div>
     </div>
   );

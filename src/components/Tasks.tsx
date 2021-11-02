@@ -1,34 +1,15 @@
-import React, { FC } from 'react'
-import Task from './Task'
+import React from 'react'
+import { SingleTask, Task } from './Task'
 
 
-interface List {
-    tasks: {
-        id: number,
-        checked: boolean,
-        priority: number,
-        text: string;
-    }[]
+interface Props {
+    tasks: Task[];
 }
 
-const Tasks: FC<List> = ({ tasks }) => {
-    return (
-        <>
-            {tasks.map((task) => (
-                <Task key={task.id} {...task}/>
-            ))}
-        </>
-
-
-        // <div className="Single-Task">
-        //   <input type="checkbox"></input>
-        //   <div className="flash-on">{'\u26A1'}</div>
-        //   <div>{'\u26A1'}</div>
-        //   <div>{'\u26A1'}</div>
-        //   <div>Task bla bla</div>
-        //   <button className="button">Löschen</button>
-        // </div>
-    )
+export const Tasks = ({tasks}: Props) => {
+    const taskList = tasks.map((task) => (
+         <SingleTask key={task.id}id={task.id}checked={task.checked}priority={task.priority}text={task.text}/>
+    ));
+    <List data={taskList} />
 }
 
-export default Tasks
