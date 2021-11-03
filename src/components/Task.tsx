@@ -1,4 +1,5 @@
 import { v4 } from 'uuid';
+import './Task.css'
 
 export interface Task {
     id: string,
@@ -11,12 +12,14 @@ export const SingleTask = (props: Task) => {
     return (
 
         <div className='task'>
-            <input type="checkbox" checked={props.checked}/>
-            <div className="flash-on">{'\u26A1'}</div>
-            <div>{'\u26A1'}</div>
-            <div>{'\u26A1'}</div>
-            <div>{props.text}</div>
-            <button className="button">Löschen</button>
+            <input className="grid__checkbox" type="checkbox" checked={props.checked}/>
+            <div className="grid__priority priority_table">
+                <div className="flash-on">{'\u26A1'}</div>
+                <div>{'\u26A1'}</div>
+                <div>{'\u26A1'}</div>
+            </div>
+            <div className="grid__text">{props.text}</div>
+            <button className="grid__delete delete-button">Löschen</button>
         </div>
     )
 }
