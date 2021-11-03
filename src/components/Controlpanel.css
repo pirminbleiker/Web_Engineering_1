@@ -3,4 +3,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+    'nil input-field nil1'
+    'nil2 show-all nil3';
   }
