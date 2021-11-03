@@ -1,6 +1,6 @@
 import { ChangeEvent, ReactNode, useState } from "react"
 import { createTask } from "./Task"
-import './TaskInput.css'
+import './TextInput.css'
 
 interface Props {
     addTask: (text: string) => void
@@ -26,8 +26,8 @@ export const TextInput = ({onChange,addTask}:Props) =>{
     }
     return (
     <div>
-        <input type="text" onChange={updateText} value={text}/>
-        <button className="button" onClick={ButtonClicked}>Hinzufügen </button>
+        <input className="text-field" placeholder="hinzufügen/suchen"type="text" onChange={updateText} value={text}/>
+        <button className="button" onClick={ButtonClicked}>Hinzufügen</button>
     </div>
     )
 }

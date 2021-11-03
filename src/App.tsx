@@ -64,10 +64,6 @@ export function App() {
       <AppHeader>Todo App</AppHeader>
       <Controlpanel addTask={addItem} onChange={filterItem} />
       <div>
-        <input type="checkbox" id="showAll" name="showAll"/>
-        <label htmlFor="showAll">Alle anzeigen</label>
-      </div>
-      <div>
         <Tasks tasks={tasks}/>
       </div>
     </div>

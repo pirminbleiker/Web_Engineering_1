@@ -1,6 +1,13 @@
 .button {
     background-color: rgb(48, 115, 136);
+    margin: 0px;
+    align-items: center;
     color: white;
     border-color: black;
     cursor: pointer;
+  }
+
+  .text-field{
+    border-color: black;
+    margin: 0px;
   }
