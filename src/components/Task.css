@@ -13,7 +13,6 @@
 
 .grid__priority{
     grid-area: priority;
-    cursor: pointer;
 }
 
 .grid__text{
@@ -28,6 +27,10 @@
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: 1fr;
+}
+
+.priority_mouseover{
+    cursor: pointer;
 }
 
 .delete-button{

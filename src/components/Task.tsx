@@ -1,18 +1,17 @@
 import { v4 } from 'uuid';
 import './Task.css'
+import { IoFlashSharp,IoFlashOutline } from 'react-icons/io5'
 
 export interface Task {
     id: string,
     checked: boolean,
     priority: number,
     text: string; 
-    deleted: boolean;
 }
 
 export const SingleTask = (props: Task) => {
-    let shownText
     const getText =() =>{
-        if(props.deleted){
+        if(props.checked){
             return (<div className="grid__text"><s>{props.text}</s></div>)
         }
         else{
@@ -20,13 +19,21 @@ export const SingleTask = (props: Task) => {
         }
     }
     
+    const getPriority = () =>{
+        return(
+            <div className="grid__priority priority_table">
+                    <div className="priority_mouseover">{(props.priority>0)?(<IoFlashSharp/>):(<IoFlashOutline/>)}</div>
+                    <div className="priority_mouseover">{(props.priority>1)?(<IoFlashSharp/>):(<IoFlashOutline/>)}</div>
+                    <div className="priority_mouseover">{(props.priority>2)?(<IoFlashSharp/>):(<IoFlashOutline/>)}</div>
+                </div>
+        )
+    }
+
     return (
 
         <div className='task'>
             <input className="grid__checkbox" type="checkbox" checked={props.checked}/>
-            <div className="grid__priority">
-                {'\u26A1'}{'\u26A1'}{'\u26A1'}
-            </div>
+            {getPriority()}
             {getText()}
             <button className="grid__delete delete-button">Löschen</button>
         </div>
@@ -36,7 +43,7 @@ export const SingleTask = (props: Task) => {
 
 
 export const createTask = (props: string): Task => {
-    return { id: v4(), checked: false, priority: 1, text: props,deleted: false };
+    return { id: v4(), checked: false, priority: 1, text: props};
   }
 
 //export default Task
