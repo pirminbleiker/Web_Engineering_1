@@ -13,18 +13,21 @@ const initialTasks: Task[] = [
     checked: false,
     priority: 0,
     text: 'Task bla bla',
+    deleted: false
   },
   {
     id: "5",
     checked: true,
     priority: 0,
     text: 'lele listeneintrag 2',
+    deleted: false
   },
   {
     id: "3",
     checked: false,
     priority: 0,
     text: 'leider nicht sortiert nach id',
+    deleted: true
   },
 ];
 
@@ -33,6 +36,7 @@ const initialTasks: Task[] = [
 
 export function App() {
   const [tasks, setTask] = useState<Task[]>(initialTasks);
+  const [unfilteredTasks, setUnfiltered]=useState<Task[]>(tasks);
 
   const addItem = (text: string) => {
     const newTask = [ ...tasks, createTask(text)]
@@ -55,8 +59,17 @@ export function App() {
   }
 
   const filterItem = (text: string) => {
-    const newTask = tasks.filter(t => t.text === text)
-    return { newTask }
+    if(text.length>0){
+      const newTask = unfilteredTasks.filter(t => t.text.toLowerCase().includes(text.toLowerCase()))
+      setTask(newTask)
+    }
+    else{
+      setTask(unfilteredTasks)
+    }
+  }
+
+  const showAllItems = () => {
+
   }
 
   return (
