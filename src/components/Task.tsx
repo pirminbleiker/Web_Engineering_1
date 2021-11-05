@@ -1,6 +1,7 @@
 import { v4 } from 'uuid';
-import { ChangeEvent } from "react"
-import { Flash } from './Flash';
+import './Task.css'
+import { IoFlashSharp,IoFlashOutline } from 'react-icons/io5'
+import { ChangeEvent } from 'react';
 
 export interface Task {
     id: string;
@@ -24,48 +25,37 @@ export const SingleTask = ({task, onDelete, onChanged}: Props) => {
         onChanged(task.id, e.target.checked, task.priority)
     }
 
-    const changePriority = (priority: number) => {
-        onChanged(task.id, task.checked, priority)
+    const getText =() =>{
+        if(task.checked){
+            return (<div className="grid__text"><s>{task.text}</s></div>)
+        }
+        else{
+            return (<div className="grid__text">{task.text}</div>)
+        }
+    }
+    
+    const getPriority = () =>{
+        return(
+            <div className="grid__priority priority_table">
+                    <div className="priority_mouseover">{(task.priority>0)?(<IoFlashSharp/>):(<IoFlashOutline/>)}</div>
+                    <div className="priority_mouseover">{(task.priority>1)?(<IoFlashSharp/>):(<IoFlashOutline/>)}</div>
+                    <div className="priority_mouseover">{(task.priority>2)?(<IoFlashSharp/>):(<IoFlashOutline/>)}</div>
+                </div>
+        )
     }
 
     return (
         <div className='task'>
-            <input type="checkbox" onChange={onChecked} checked={task.checked}/>
-            <Flash id={1} onChanged={changePriority}/>
-            <Flash id={2} onChanged={changePriority}/>
-            <Flash id={3} onChanged={changePriority}/>
-            <div>{task.text}</div>
-            <button className="button" onClick={onClick}>Löschen</button>
+
+            <input className="grid__checkbox" type="checkbox" onChange={onChecked} checked={task.checked}/>
+            {getPriority()}
+            {getText()}
+            <button className="grid__delete delete-button" onClick={onClick}>Löschen</button>
+
         </div>
     )
 }
 
 export const createTask = (props: string): Task => {
-    return { id: v4(), checked: false, priority: 1, text: props };
+    return { id: v4(), checked: false, priority: 1, text: props};
   }
-
-//export default Task
-// switch ({priority}) {
-//     case 0:
-//         <div>{'\u26A1'}</div>
-//         <div>{'\u26A1'}</div>
-//         <div>{'\u26A1'}</div>
-//         break;
-//     case 1:
-//         <div className="flash-on">{'\u26A1'}</div>
-//         <div>{'\u26A1'}</div>
-//         <div>{'\u26A1'}</div>
-//         break;
-//     case 2:
-//         <div className="flash-on">{'\u26A1'}</div>
-//         <div className="flash-on">{'\u26A1'}</div>
-//         <div>{'\u26A1'}</div>
-//         break;
-//     case 3:
-//         <div className="flash-on">{'\u26A1'}</div>
-//         <div className="flash-on">{'\u26A1'}</div>
-//         <div className="flash-on">{'\u26A1'}</div>
-//         break;
-//     default:
-//         break;
-//}

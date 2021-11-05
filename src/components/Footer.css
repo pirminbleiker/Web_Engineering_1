@@ -1,0 +1,17 @@
+.footer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 10px;
+    font-size: calc(5px + 1vmin);
+}
+
+.left{
+    grid-column-start: 1;
+}
+.middle{
+    grid-column-start: 2;
+}
+
+.right{
+    grid-column-start: 3;
+}

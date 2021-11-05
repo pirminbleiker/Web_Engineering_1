@@ -4,6 +4,7 @@ import { Controlpanel } from './components/Controlpanel'
 import { ChangeEvent, useState } from "react";
 import { Task, createTask } from './components/Task'
 import { Tasks } from './components/Tasks'
+import { Footer } from './components/Footer'
 
 // TODO Folie 18 als Info für Array bearbeitung!!!
 
@@ -17,13 +18,13 @@ const initialTasks: Task[] = [
   {
     id: "5",
     checked: true,
-    priority: 0,
+    priority: 1,
     text: 'lele listeneintrag 2',
   },
   {
     id: "3",
     checked: false,
-    priority: 0,
+    priority: 2,
     text: 'leider nicht sortiert nach id',
   },
 ];
@@ -49,6 +50,7 @@ export function App() {
     setTask(newTask)
     setFilteredTask(newTask)
   }
+
 
   const updateItem = (id: string, checked: boolean, priority: number) => {
     const newTask = tasks.map(t => {
@@ -76,15 +78,16 @@ export function App() {
     setFilteredTask(newTask)
   }
 
-
-
   return (
     <div className="App">
       <AppHeader>Todo App</AppHeader>
+
       <Controlpanel addTask={addItem} onChange={onTextInput} onShowAll={onShowAll} />
+  {/* <Controlpanel addTask={addItem} onChange={filterItem} cbValue={showAll} cbChange={showAllItems} /> */}
       <div>
         <Tasks tasks={filteredTasks} onDelete={removeItem} onChanged={updateItem}/>
       </div>
+      <Footer/>
     </div>
   );
 }

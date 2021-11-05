@@ -1,0 +1,42 @@
+.task{
+    display: grid;
+    margin: 10px;
+    grid-template-columns: 3fr 1fr 1fr 4fr 2fr 3fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    'none checkbox priority text delete none1';
+}
+
+.grid__checkbox{
+    grid-area: checkbox;
+}
+
+.grid__priority{
+    grid-area: priority;
+}
+
+.grid__text{
+    grid-area: text;
+}
+
+.grid__delete{
+    grid-area: delete;
+}
+
+.priority_table{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 1fr;
+}
+
+.priority_mouseover{
+    cursor: pointer;
+}
+
+.delete-button{
+    width: 40%;
+    height: 90%;
+    background-color: rgb(48, 115, 136);
+    color: white;
+    border-color: black;
+}

@@ -1,17 +1,12 @@
 import './Controlpanel.css'
-import { TextInput } from './TaskInput'
-import React, { ChangeEvent } from "react";
+import { ChangeEvent } from "react";
+import { TextInput } from './TextInput';
 
 interface Props {
     addTask: (text: string) => void
     onChange: (value: string) => void
     onShowAll: (event: ChangeEvent<HTMLInputElement>) => void
 }
-
-// const onChecked = (event: ChangeEvent<HTMLInputElement>)=>{
-//     setShowAll(event.target.checked)
-//     onChange('text')
-//   }
 
 export const Controlpanel = ({addTask, onChange, onShowAll}: Props) =>(
     <div className="Control-panel">
@@ -21,6 +16,5 @@ export const Controlpanel = ({addTask, onChange, onShowAll}: Props) =>(
             <input type="checkbox" onChange={onShowAll} id="showAll" name="showAll"/>
             <label htmlFor="showAll">Alle anzeigen</label>
         </div>
-    </div>
-  
-)
+    </div>)
+
