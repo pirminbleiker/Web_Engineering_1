@@ -42,13 +42,13 @@ export function App() {
     const newTask = [ ...tasks, createTask(text)]
     setText('')
     setTask(newTask)
-    setFilteredTask(newTask)
+    filterItem(newTask,'',showAll)
   }
 
   const removeItem = (id: string) => {
     const newTask = tasks.filter(t => t.id !== id)
     setTask(newTask)
-    setFilteredTask(newTask)
+    filterItem(newTask,text,showAll)
   }
 
 
@@ -60,21 +60,21 @@ export function App() {
       return t
     })
     setTask(newTask)
-    setFilteredTask(newTask)
+    filterItem(newTask,text,showAll)
   }
 
   const onTextInput = (text: string) => {
     setText(text)
-    showAll ? filterItem('') : filterItem(text)
+    filterItem(tasks,text,showAll)
   }
 
   const onShowAll = (event: ChangeEvent<HTMLInputElement>)=>{
     setShowAll(event.target.checked)
-    event.target.checked ? filterItem('') : filterItem(text)
+    event.target.checked ? filterItem(tasks,'', true) : filterItem(tasks,text,false)
   }
 
-  const filterItem = (text: string) => {
-    const newTask = tasks.filter(t => t.text.includes(text))
+  const filterItem = (tasks: Task[], text: string, showAll: boolean) => {
+    const newTask = tasks.filter(t => (t.text.includes(text) && !t.checked) || showAll)
     setFilteredTask(newTask)
   }
 
