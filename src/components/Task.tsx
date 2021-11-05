@@ -1,27 +1,44 @@
 import { v4 } from 'uuid';
+import { ChangeEvent } from "react"
+import { Flash } from './Flash';
 
 export interface Task {
-    id: string,
-    checked: boolean,
-    priority: number,
-    text: string; 
+    id: string;
+    checked: boolean;
+    priority: number;
+    text: string;
+}
+interface Props {
+    task: Task;
+    onDelete: (id: string) => void;
+    onChanged: (id: string, checked: boolean, priority: number) => void;
 }
 
-export const SingleTask = (props: Task) => {
-    return (
+export const SingleTask = ({task, onDelete, onChanged}: Props) => {
 
+    const onClick = () => {
+        onDelete(task.id)
+    }
+
+    const onChecked = (e: ChangeEvent<HTMLInputElement>) => {
+        onChanged(task.id, e.target.checked, task.priority)
+    }
+
+    const changePriority = (priority: number) => {
+        onChanged(task.id, task.checked, priority)
+    }
+
+    return (
         <div className='task'>
-            <input type="checkbox" checked={props.checked}/>
-            <div className="flash-on">{'\u26A1'}</div>
-            <div>{'\u26A1'}</div>
-            <div>{'\u26A1'}</div>
-            <div>{props.text}</div>
-            <button className="button">Löschen</button>
+            <input type="checkbox" onChange={onChecked} checked={task.checked}/>
+            <Flash id={1} onChanged={changePriority}/>
+            <Flash id={2} onChanged={changePriority}/>
+            <Flash id={3} onChanged={changePriority}/>
+            <div>{task.text}</div>
+            <button className="button" onClick={onClick}>Löschen</button>
         </div>
     )
 }
-
-
 
 export const createTask = (props: string): Task => {
     return { id: v4(), checked: false, priority: 1, text: props };

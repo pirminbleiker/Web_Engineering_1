@@ -1,5 +1,4 @@
-import { ChangeEvent, ReactNode, useState } from "react"
-import { createTask } from "./Task"
+import { ChangeEvent, useState } from "react"
 import './TaskInput.css'
 
 interface Props {

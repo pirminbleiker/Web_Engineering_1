@@ -1,7 +1,7 @@
 import './App.css'
 import { AppHeader } from './components/AppHeader'
 import { Controlpanel } from './components/Controlpanel'
-import React, { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { Task, createTask } from './components/Task'
 import { Tasks } from './components/Tasks'
 
@@ -33,42 +33,57 @@ const initialTasks: Task[] = [
 
 export function App() {
   const [tasks, setTask] = useState<Task[]>(initialTasks);
+  const [filteredTasks, setFilteredTask] = useState<Task[]>(initialTasks);
+  const [text, setText] = useState<string>('');
+  const [showAll, setShowAll] = useState<boolean>(false);
 
   const addItem = (text: string) => {
     const newTask = [ ...tasks, createTask(text)]
+    setText('')
     setTask(newTask)
+    setFilteredTask(newTask)
   }
 
   const removeItem = (id: string) => {
     const newTask = tasks.filter(t => t.id !== id)
     setTask(newTask)
+    setFilteredTask(newTask)
   }
 
-  const updateItem = (id: string, done: boolean, prio: number) => {
+  const updateItem = (id: string, checked: boolean, priority: number) => {
     const newTask = tasks.map(t => {
       if (t.id === id) {
-        return { ...t, checked: done, priority: prio}
+        return { ...t, checked: checked, priority: priority}
       }
       return t
     })
     setTask(newTask)
+    setFilteredTask(newTask)
+  }
+
+  const onTextInput = (text: string) => {
+    setText(text)
+    showAll ? filterItem('') : filterItem(text)
+  }
+
+  const onShowAll = (event: ChangeEvent<HTMLInputElement>)=>{
+    setShowAll(event.target.checked)
+    event.target.checked ? filterItem('') : filterItem(text)
   }
 
   const filterItem = (text: string) => {
-    const newTask = tasks.filter(t => t.text === text)
-    return { newTask }
+    const newTask = tasks.filter(t => t.text.includes(text))
+    setFilteredTask(newTask)
   }
+
+
 
   return (
     <div className="App">
       <AppHeader>Todo App</AppHeader>
-      <Controlpanel addTask={addItem} onChange={filterItem} />
+      <Controlpanel addTask={addItem} onChange={onTextInput} onShowAll={onShowAll} />
       <div>
-        <input type="checkbox" id="showAll" name="showAll"/>
-        <label htmlFor="showAll">Alle anzeigen</label>
-      </div>
-      <div>
-        <Tasks tasks={tasks}/>
+        <Tasks tasks={filteredTasks} onDelete={removeItem} onChanged={updateItem}/>
       </div>
     </div>
   );
