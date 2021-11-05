@@ -10,9 +10,10 @@ interface Props {
 
 export const Controlpanel = ({addTask, onChange, onShowAll}: Props) =>(
     <div className="Control-panel">
-        <div>
+        <div className="grid_input-field">
             <TextInput onChange={onChange}addTask={addTask}/>
-        <br/>
+        </div>
+        <div className="grid_show-all">
             <input type="checkbox" onChange={onShowAll} id="showAll" name="showAll"/>
             <label htmlFor="showAll">Alle anzeigen</label>
         </div>

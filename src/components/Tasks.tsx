@@ -13,6 +13,6 @@ export const Tasks = ({tasks, onDelete, onChanged}: Props) => {
         <SingleTask key={task.id} task={task} onDelete={onDelete} onChanged={onChanged}/>
         
     ));
-    return <div>{taskList}</div>
+    return <div>{(taskList.length>0)?(taskList):("Keine anzuzeigende Tasks")}</div>
 }
 

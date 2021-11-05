@@ -7,3 +7,11 @@
     'nil input-field nil1'
     'nil2 show-all nil3';
   }
+
+.grid_input-field{
+  grid-area: input-field;
+}
+
+.grid_show-all{
+  grid-area: show-all;
+}
