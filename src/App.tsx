@@ -83,7 +83,6 @@ export function App() {
       <AppHeader>Todo App</AppHeader>
 
       <Controlpanel addTask={addItem} onChange={onTextInput} onShowAll={onShowAll} />
-  {/* <Controlpanel addTask={addItem} onChange={filterItem} cbValue={showAll} cbChange={showAllItems} /> */}
       <div>
         <Tasks tasks={filteredTasks} onDelete={removeItem} onChanged={updateItem}/>
       </div>
