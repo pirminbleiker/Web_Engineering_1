@@ -37,10 +37,10 @@ export const SingleTask = ({task, onDelete, onChanged}: Props) => {
     const getPriority = () =>{
         return(
             <div className="grid__priority priority_table">
-                    <div className="priority_mouseover">{(task.priority>0)?(<IoFlashSharp/>):(<IoFlashOutline/>)}</div>
-                    <div className="priority_mouseover">{(task.priority>1)?(<IoFlashSharp/>):(<IoFlashOutline/>)}</div>
-                    <div className="priority_mouseover">{(task.priority>2)?(<IoFlashSharp/>):(<IoFlashOutline/>)}</div>
-                </div>
+                <div className="priority_mouseover">{(task.priority>0)?(<IoFlashSharp/>):(<IoFlashOutline/>)}</div>
+                <div className="priority_mouseover">{(task.priority>1)?(<IoFlashSharp/>):(<IoFlashOutline/>)}</div>
+                <div className="priority_mouseover">{(task.priority>2)?(<IoFlashSharp/>):(<IoFlashOutline/>)}</div>
+            </div>
         )
     }
 

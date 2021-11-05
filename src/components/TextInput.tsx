@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from "react"
-import './TaskInput.css'
+import './TextInput.css'
 
 interface Props {
     addTask: (text: string) => void
