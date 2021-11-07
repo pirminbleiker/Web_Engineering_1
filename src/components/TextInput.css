@@ -5,9 +5,13 @@
     color: white;
     border-color: black;
     cursor: pointer;
+    width: 7em;
+    height: 30px;
   }
 
   .text-field{
     border-color: black;
     margin: 0px;
+    width: 15em;
+    height: 24px;
   }
