@@ -1,7 +1,7 @@
 import { v4 } from 'uuid';
 import './Task.css'
 import { IoFlashSharp,IoFlashOutline } from 'react-icons/io5'
-import { ChangeEvent } from 'react';
+import { ChangeEvent, MouseEventHandler } from 'react';
 
 export interface Task {
     id: string;
@@ -25,6 +25,10 @@ export const SingleTask = ({task, onDelete, onChanged}: Props) => {
         onChanged(task.id, e.target.checked, task.priority)
     }
 
+    const prioChange = (prio: number) =>{
+        onChanged(task.id,task.checked,prio)
+    }
+
     const getText =() =>{
         if(task.checked){
             return (<div className="grid__text"><s>{task.text}</s></div>)
@@ -37,9 +41,9 @@ export const SingleTask = ({task, onDelete, onChanged}: Props) => {
     const getPriority = () =>{
         return(
             <div className="grid__priority priority_table">
-                <div className="priority_mouseover">{(task.priority>0)?(<IoFlashSharp/>):(<IoFlashOutline/>)}</div>
-                <div className="priority_mouseover">{(task.priority>1)?(<IoFlashSharp/>):(<IoFlashOutline/>)}</div>
-                <div className="priority_mouseover">{(task.priority>2)?(<IoFlashSharp/>):(<IoFlashOutline/>)}</div>
+                <div className="priority_mouseover" onClick={()=>prioChange(1)}>{(task.priority>0)?(<IoFlashSharp/>):(<IoFlashOutline/>)}</div>
+                <div className="priority_mouseover" onClick={()=>prioChange(2)}>{(task.priority>1)?(<IoFlashSharp/>):(<IoFlashOutline/>)}</div>
+                <div className="priority_mouseover" onClick={()=>prioChange(3)}>{(task.priority>2)?(<IoFlashSharp/>):(<IoFlashOutline/>)}</div>
             </div>
         )
     }
@@ -57,5 +61,5 @@ export const SingleTask = ({task, onDelete, onChanged}: Props) => {
 }
 
 export const createTask = (props: string): Task => {
-    return { id: v4(), checked: false, priority: 1, text: props};
+    return { id: v4(), checked: false, priority: 0, text: props};
   }
