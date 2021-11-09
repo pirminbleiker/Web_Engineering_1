@@ -1,6 +1,5 @@
 .task{
     display: grid;
-
     margin: 10px;
     grid-template-columns: 1fr 1fr 4fr 2fr;
     grid-template-rows: 1fr;
@@ -13,6 +12,8 @@
     width: 15px;
     height: 15px;
     padding: 25px;
+    display: flex;
+    justify-self: right;
     align-self: center;
 }
 
