@@ -34,7 +34,7 @@ const initialTasks: Task[] = [
 
 export function App() {
   const [tasks, setTask] = useState<Task[]>(initialTasks);
-  const [filteredTasks, setFilteredTask] = useState<Task[]>(initialTasks);
+  const [filteredTasks, setFilteredTask] = useState<Task[]>(initialTasks.filter(t => t.checked===false));
   const [text, setText] = useState<string>('');
   const [showAll, setShowAll] = useState<boolean>(false);
 
@@ -70,7 +70,7 @@ export function App() {
 
   const onShowAll = (event: ChangeEvent<HTMLInputElement>)=>{
     setShowAll(event.target.checked)
-    event.target.checked ? filterItem(tasks,'', true) : filterItem(tasks,text,false)
+    filterItem(tasks,text,event.target.checked)
   }
 
   const filterItem = (tasks: Task[], text: string, showAll: boolean) => {
