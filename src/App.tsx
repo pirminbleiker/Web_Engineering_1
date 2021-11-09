@@ -5,24 +5,25 @@ import { ChangeEvent, useState } from "react";
 import { Task, createTask } from './components/Task'
 import { Tasks } from './components/Tasks'
 import { Footer } from './components/Footer'
+import { v4 } from 'uuid';
 
 // TODO Folie 18 als Info für Array bearbeitung!!!
 
 const initialTasks: Task[] = [
   {
-    id: "1",
+    id: v4(),
     checked: false,
-    priority: 0,
+    priority: 1,
     text: 'Task bla bla',
   },
   {
-    id: "5",
+    id: v4(),
     checked: true,
-    priority: 1,
+    priority: 3,
     text: 'lele listeneintrag 2',
   },
   {
-    id: "3",
+    id: v4(),
     checked: false,
     priority: 2,
     text: 'leider nicht sortiert nach id',
