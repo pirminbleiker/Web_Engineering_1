@@ -15,6 +15,6 @@
 
 .grid_show-all{
   grid-area: show-all;
-  padding: 10px;
   display: flex;
+  justify-content: left;
 }
