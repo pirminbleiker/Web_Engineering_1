@@ -24,7 +24,7 @@ export const TextInput = ({onChange,addTask}:Props) =>{
         console.log('textfield empty')
     }
     return (
-    <div>
+    <div className="text-input">
         <input className="text-field" placeholder="hinzufügen/suchen"type="text" onChange={updateText} value={text}/>
         <button className="add-button" onClick={ButtonClicked}>Hinzufügen</button>
     </div>

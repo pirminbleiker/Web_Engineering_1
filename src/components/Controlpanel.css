@@ -10,12 +10,10 @@
 
 .grid_input-field{
   grid-area: input-field;
-  display: flex;
-  justify-content: left;
+  justify-content: center;
 }
 
 .grid_show-all{
   grid-area: show-all;
-  display: flex;
-  justify-content: left;
+  padding: 10px
 }

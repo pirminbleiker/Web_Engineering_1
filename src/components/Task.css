@@ -1,5 +1,6 @@
 .task{
-    display: grid;
+    display: flex;
+
     margin: 10px;
     grid-template-columns: 3fr 1fr 1fr 4fr 2fr 3fr;
     grid-template-rows: 1fr;
@@ -9,24 +10,37 @@
 
 .grid__checkbox{
     grid-area: checkbox;
+    padding: 25px;
+
 }
 
 .grid__priority{
     grid-area: priority;
+    padding: 10px;
+    align-items: center;
+
 }
 
 .grid__text{
     grid-area: text;
+    flex: 1;
+    padding: 10px
 }
 
 .grid__delete{
     grid-area: delete;
+    flex: 0;
+    width: 20px;
+    align-self: center;
+    padding: 5px;
+
 }
 
 .priority_table{
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: 1fr;
+
 }
 
 .priority_mouseover{
@@ -39,4 +53,5 @@
     background-color: rgb(48, 115, 136);
     color: white;
     border-color: black;
+
 }

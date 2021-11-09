@@ -1,7 +1,11 @@
+.text-input {
+  align-items: baseline;
+  display: flex;
+}
+
 .add-button {
     background-color: rgb(48, 115, 136);
     margin: 0px;
-    align-items: center;
     color: white;
     border-color: black;
     cursor: pointer;
