@@ -61,5 +61,5 @@ export const SingleTask = ({task, onDelete, onChanged}: Props) => {
 }
 
 export const createTask = (props: string): Task => {
-    return { id: v4(), checked: false, priority: 0, text: props};
+    return { id: v4(), checked: false, priority: 1, text: props};
   }
