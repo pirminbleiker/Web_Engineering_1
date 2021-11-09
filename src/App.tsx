@@ -74,7 +74,7 @@ export function App() {
   }
 
   const filterItem = (tasks: Task[], text: string, showAll: boolean) => {
-    const newTask = tasks.filter(t => (t.text.includes(text) && !t.checked) || showAll)
+    const newTask = tasks.filter(t => (t.text.toLowerCase().includes(text) && !t.checked) || showAll)
     setFilteredTask(newTask)
   }
 

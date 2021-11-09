@@ -1,17 +1,19 @@
 .task{
-    display: flex;
+    display: grid;
 
     margin: 10px;
-    grid-template-columns: 3fr 1fr 1fr 4fr 2fr 3fr;
+    grid-template-columns: 1fr 1fr 4fr 2fr;
     grid-template-rows: 1fr;
     grid-template-areas: 
-    'none checkbox priority text delete none1';
+    'checkbox priority text delete';
 }
 
 .grid__checkbox{
     grid-area: checkbox;
+    width: 15px;
+    height: 15px;
     padding: 25px;
-
+    align-self: center;
 }
 
 .grid__priority{
@@ -48,8 +50,8 @@
 }
 
 .delete-button{
-    width: 40%;
-    height: 90%;
+    width: 5em;
+    height: auto;
     background-color: rgb(48, 115, 136);
     color: white;
     border-color: black;

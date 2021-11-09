@@ -25,7 +25,7 @@ export const TextInput = ({onChange,addTask}:Props) =>{
     }
     return (
     <div className="text-input">
-        <input className="text-field" placeholder="hinzufügen/suchen"type="text" onChange={updateText} value={text}/>
+        <input className="text-field" placeholder="Aufgabe..."type="text" onChange={updateText} value={text}/>
         <button className="add-button" onClick={ButtonClicked}>Hinzufügen</button>
     </div>
     )
